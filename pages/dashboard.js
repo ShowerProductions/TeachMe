@@ -1,5 +1,10 @@
 import Head from 'next/head';
+import Layout from '@components/Layout';
 
 export default function Dashboard() {
-  return <Head></Head>;
+  return (
+    <Layout>
+      <Head></Head>
+    </Layout>
+  );
 }
