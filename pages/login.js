@@ -6,12 +6,21 @@ import InputItem from '@components/authentication/input-item/InputItem';
 
 export default function Login() {
   return (
-    <div>
+    <Layout>
       <Head></Head>
       <InputForm name="Login">
-        <InputItem name="Username" />
-        <InputItem name="Password" />
+        {(register) => (
+          <>
+            <InputItem name="Username" register={register} />
+            <InputItem
+              name="Password"
+              register={register}
+              type="password"
+              required
+            />
+          </>
+        )}
       </InputForm>
-    </div>
+    </Layout>
   );
 }
