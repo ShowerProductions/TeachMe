@@ -1,0 +1,12 @@
+.InputItem {
+    padding: 0 20px;
+    width: 100%;
+}
+
+.name {
+    margin: 0 0 5px 0;
+}
+
+.inputField {
+    width: 100%;
+}
