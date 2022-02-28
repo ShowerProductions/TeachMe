@@ -1,0 +1,26 @@
+.InputForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 340px;
+    padding: 5px 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    background-color: rgb(231, 231, 231);
+}
+
+.name {
+    font-size: 2em;
+    align-self: flex-start;
+}
+
+.submitButton {
+    width: 30px;
+    height: 20px;
+}
