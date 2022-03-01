@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './InputItem.module.css';
 
-const InputItem = ({ register, name, type, error, required }) => {
+const InputItem = ({ register, name, type, error, required = false }) => {
   return (
     <div className={styles.InputItem}>
       <label htmlFor={name.toLowerCase()} className={styles.name}>
@@ -13,7 +13,7 @@ const InputItem = ({ register, name, type, error, required }) => {
         className={styles.inputField}
         type={type}
         name={name.toLowerCase()}
-        {...register(name, { required })}
+        {...register(name, { required: required })}
       />
       <p className={styles.errorStatus}>{error}</p>
     </div>
