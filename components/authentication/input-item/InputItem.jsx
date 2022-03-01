@@ -6,10 +6,13 @@ import styles from './InputItem.module.css';
 const InputItem = ({ register, name, type, error, required }) => {
   return (
     <div className={styles.InputItem}>
-      <h3 className={styles.name}>{name}</h3>
+      <label htmlFor={name.toLowerCase()} className={styles.name}>
+        {name}
+      </label>
       <input
         className={styles.inputField}
         type={type}
+        name={name.toLowerCase()}
         {...register(name, { required })}
       />
       <p className={styles.errorStatus}>{error}</p>
