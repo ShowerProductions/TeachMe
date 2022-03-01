@@ -6,13 +6,17 @@
   height: 6%;
   background-color: rgb(200, 20, 20);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   align-content: center;
+  gap: 30px;
   overflow: hidden;
+  padding: 0 40px;
 }
 
 .logoLink {
+  position: absolute;
+  left: 10px;
   height: 120%;
   aspect-ratio: 2;
 }
