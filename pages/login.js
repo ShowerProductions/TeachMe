@@ -11,12 +11,12 @@ export default function Login() {
       <InputForm name="Login">
         {(register) => (
           <>
-            <InputItem name="Username" register={register} />
+            <InputItem name="Username" register={register} required={true} />
             <InputItem
               name="Password"
               register={register}
               type="password"
-              required
+              required={true}
             />
           </>
         )}
