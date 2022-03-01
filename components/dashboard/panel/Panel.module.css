@@ -1,0 +1,9 @@
+.Panel {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  background: rgb(255, 242, 168);
+  overflow-y: auto;
+}
