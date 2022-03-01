@@ -1,8 +1,6 @@
 .Navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: static;
+  width: 100vw;
   height: 6%;
   background-color: rgb(200, 20, 20);
   display: flex;
@@ -17,6 +15,6 @@
 .logoLink {
   position: absolute;
   left: 10px;
-  height: 120%;
+  height: 5%;
   aspect-ratio: 2;
 }
