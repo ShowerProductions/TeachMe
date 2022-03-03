@@ -8,14 +8,27 @@ import Session from '@components/dashboard/panels/sessions/Session';
 export default function Dashboard() {
   return (
     <Layout>
-      <Head></Head>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Asap&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <DashboardLayout>
         <Panel>hjasdkf</Panel>
         <Panel>
           <Session
-            user="torghton"
+            username="torghton"
             title="How to find area of circle"
             description="Im not sure how to find the area of a circle, my geometry class is studying it right now, though the teacher didn't explain it very well. Please lecture me on how to do this."
+            topic="Science"
+          />
+          <Session
+            username="bob"
+            title="Mitocondria Explanation Help"
+            description="hafkjdshfkjhsadkjfhsakjdfhksjadfhkjsadhfhsakjfhsd"
             topic="Science"
           />
         </Panel>
