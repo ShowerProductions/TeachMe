@@ -9,7 +9,7 @@ export default function Login({ providers }) {
   return (
     <Layout>
       <Head></Head>
-      <button onClick={() => signOut}>Sign Out</button>
+      <button onClick={() => signOut()}>Sign Out</button>
       {Object.values(providers).map((provider) => (
         <button onClick={() => signIn(provider.id)} key={provider.id}>
           Sign in with {provider.name}
@@ -34,6 +34,7 @@ export default function Login({ providers }) {
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
+  console.log(session);
 
   if (session) {
     return {

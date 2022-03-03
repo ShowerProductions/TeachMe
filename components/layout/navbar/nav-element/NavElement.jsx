@@ -4,17 +4,22 @@ import NextLink from 'next/link';
 
 import styles from './NavElement.module.css';
 
-const NavElement = (props) => {
-  const { children, ...NavSettings } = props;
+const NavElement = ({ children, button = false, ...NavSettings }) => {
   return (
     <div className={styles.NavElement}>
-      <NextLink {...NavSettings}>
-        <a>{children}</a>
-      </NextLink>
+      {button ? (
+        <button {...NavSettings}>{children}</button>
+      ) : (
+        <NextLink {...NavSettings}>
+          <a>{children}</a>
+        </NextLink>
+      )}
     </div>
   );
 };
 
-NavElement.propTypes = {};
+NavElement.propTypes = {
+  button: PropTypes.bool,
+};
 
 export default NavElement;

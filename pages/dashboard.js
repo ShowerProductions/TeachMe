@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { getSession } from 'next-auth/react';
 
 import Layout from '@components/layout/Layout';
 import DashboardLayout from '@components/dashboard/layout/Layout';
@@ -36,4 +37,19 @@ export default function Dashboard() {
       </DashboardLayout>
     </Layout>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+  console.log(session);
+
+  if (session === null) {
+    return {
+      redirect: { destination: '/login' },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }
