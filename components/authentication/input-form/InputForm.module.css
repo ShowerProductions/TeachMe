@@ -31,6 +31,6 @@
 }
 
 .submitButton:hover {
-  background-color: blue;
-  box-shadow: 0 0 5px blue;
+  background-color: aqua;
+  box-shadow: 0 0 5px aqua;
 }
