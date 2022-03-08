@@ -1,9 +1,10 @@
 .InputForm {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
+  height: fit-content;
   transform: translate(-50%, -50%);
-  min-width: 340px;
+  width: 390px;
   padding: 5px 20px;
   display: flex;
   flex-flow: column nowrap;
@@ -12,7 +13,9 @@
   align-items: center;
   gap: 20px;
   border-radius: 10px;
-  background-color: rgb(231, 231, 231);
+  /* background-color: rgb(231, 231, 231); */
+  /* background-color: transparent; */
+  box-shadow: 0 0 20px black;
 }
 
 .name {
