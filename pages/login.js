@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { getProviders, getSession, signIn, signOut } from 'next-auth/react';
 
-import Layout from '@components/layout/Layout';
+import Layout from '@components/authentication/layout/Layout';
 import InputForm from '@components/authentication/input-form/InputForm';
 import InputItem from '@components/authentication/input-item/InputItem';
 
