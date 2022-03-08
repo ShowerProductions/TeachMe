@@ -7,7 +7,7 @@ import InputItem from '@components/authentication/input-item/InputItem';
 
 export default function Login({ providers }) {
   return (
-    <Layout>
+    <div>
       <Head></Head>
       {Object.values(providers).map((provider) => (
         <button onClick={() => signIn(provider.id)} key={provider.id}>
@@ -27,7 +27,7 @@ export default function Login({ providers }) {
           </>
         )}
       </InputForm>
-    </Layout>
+    </div>
   );
 }
 
