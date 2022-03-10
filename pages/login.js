@@ -29,7 +29,7 @@ export default function Login({ providers }) {
       </main>
       <div className={styles.signUpArea}>
         <h1 className={utilStyles.headding1} style={{ margin: 0 }}>
-          New?
+          New Here?
         </h1>
         <p className={utilStyles.paragraph} stlye={{ textAlign: 'center' }}>
           Register an account to start your priceless journey today!

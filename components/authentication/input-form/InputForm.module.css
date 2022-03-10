@@ -4,7 +4,7 @@
   left: 50%;
   height: fit-content;
   transform: translate(-50%, -50%);
-  width: 390px;
+  width: 60%;
   padding: 5px 20px;
   display: flex;
   flex-flow: column nowrap;
@@ -13,9 +13,7 @@
   align-items: center;
   gap: 20px;
   border-radius: 10px;
-  /* background-color: rgb(231, 231, 231); */
-  /* background-color: transparent; */
-  box-shadow: 0 0 20px black;
+  background-color: transparent;
 }
 
 .name {
