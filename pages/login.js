@@ -4,6 +4,7 @@ import { getProviders, getSession, signIn, signOut } from 'next-auth/react';
 import Layout from '@components/Layout';
 import InputForm from '@components/InputForm';
 import InputItem from '@components/InputItem';
+import Button from '@components/Button';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -38,7 +39,7 @@ export default function Login({ providers }) {
           <p className={utilStyles.paragraph} stlye={{ textAlign: 'center' }}>
             Register an account to start your priceless journey today!
           </p>
-          <button className={utilStyles.fancyButton}>Sign Up</button>
+          <Button padding={'100px 10px'}>Sign Up</Button>
         </div>
         {/* {Object.values(providers).map((provider) => (
         <button onClick={() => signIn(provider.id)} key={provider.id}>
@@ -46,29 +47,31 @@ export default function Login({ providers }) {
         </button>
       ))} */}
       </div>
-      <style jsx>{`
-        .login {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          display: grid;
-          grid: 1fr / 1.7fr 1fr;
-        }
+      <style jsx>
+        {`
+          .login {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid: 1fr / 1.7fr 1fr;
+          }
 
-        .login-area {
-          background-color: #fff;
-        }
+          .login-area {
+            background-color: #fff;
+          }
 
-        .sign-up-area {
-          background-color: #8bc6ec;
-          background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
-          display: flex;
-          flex-flow: column nowrap;
-          justify-content: center;
-          align-items: center;
-          padding: 50px;
-        }
-      `}</style>
+          .sign-up-area {
+            background-color: #8bc6ec;
+            background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+          }
+        `}
+      </style>
     </Layout>
   );
 }

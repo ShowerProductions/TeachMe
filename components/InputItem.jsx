@@ -15,7 +15,7 @@ const InputItem = ({ register, name, type, error, required = false }) => {
       <style jsx>
         {`
           .InputItem {
-            padding: 0 20px;
+            padding: 0px 0px;
             width: 100%;
           }
 
