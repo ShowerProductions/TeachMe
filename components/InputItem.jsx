@@ -27,7 +27,6 @@ const InputItem = ({ register, name, type, error, required = false }) => {
             width: 100%;
             height: 50px;
             padding: 10px 20px;
-            /* border: 2px solid rgba(200, 10, 20, 0.6); */
             border: none;
             background: linear-gradient(
               to left,

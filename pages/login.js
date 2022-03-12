@@ -14,7 +14,9 @@ export default function Login({ providers }) {
       <Head></Head>
       <div className="login">
         <main className="login-area">
-          <InputForm name="Login">
+          <h1 className={utilStyles.headding1}>Login to Your Acccount</h1>
+          {/* <form></form> */}
+          <InputForm>
             {(register) => (
               <>
                 <InputItem
@@ -50,14 +52,18 @@ export default function Login({ providers }) {
       <style jsx>
         {`
           .login {
-            position: relative;
             width: 100%;
             height: 100%;
             display: grid;
             grid: 1fr / 1.7fr 1fr;
           }
 
-          .login-area {
+          main {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
             background-color: #fff;
           }
 

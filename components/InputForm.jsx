@@ -4,13 +4,12 @@ import { useForm } from 'react-hook-form';
 
 import Button from '@components/Button';
 
-const InputForm = ({ children, name }) => {
+const InputForm = ({ children }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="name">{name}</h1>
       {children(register)}
       <Button
         onClick={(e) => e.target.closest('form').submit()}
@@ -22,11 +21,7 @@ const InputForm = ({ children, name }) => {
       <style jsx>
         {`
           form {
-            position: relative;
-            top: 50%;
-            left: 50%;
             height: fit-content;
-            transform: translate(-50%, -50%);
             width: 60%;
             padding: 5px 20px;
             display: flex;
