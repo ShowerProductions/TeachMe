@@ -39,7 +39,7 @@ export default function Login({ providers }) {
           <p className={utilStyles.paragraph} stlye={{ textAlign: 'center' }}>
             Register an account to start your priceless journey today!
           </p>
-          <Button padding={'100px 10px'}>Sign Up</Button>
+          <Button padding="10px 30px">Sign Up</Button>
         </div>
         {/* {Object.values(providers).map((provider) => (
         <button onClick={() => signIn(provider.id)} key={provider.id}>
