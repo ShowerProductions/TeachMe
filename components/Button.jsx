@@ -36,8 +36,8 @@ const Button = ({
             font-size: ${fontSize || `1.1em`};
             color: black;
             transition: border-radius 0.2s, transform 0.2s;
-            margin: {margin};
-            padding: {padding};
+            margin: ${margin};
+            padding: ${padding};
             cursor: pointer;
           }
 
