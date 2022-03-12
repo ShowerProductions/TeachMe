@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
+import Button from '@components/Button';
+
 const InputForm = ({ children, name }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
@@ -10,7 +12,13 @@ const InputForm = ({ children, name }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1 className="name">{name}</h1>
       {children(register)}
-      <input className="submitButton" type="submit" />
+      <Button
+        onClick={(e) => e.target.closest('form').submit()}
+        padding="10px 15px"
+        className="submitButton"
+        type="submit"
+        name="Login"
+      />
       <style jsx>
         {`
           form {
@@ -34,21 +42,6 @@ const InputForm = ({ children, name }) => {
           .name {
             font-size: 2em;
             align-self: flex-start;
-          }
-
-          .submitButton {
-            width: 100px;
-            height: 30px;
-            border-radius: 15px;
-            background-color: rgb(38, 255, 248);
-            border: none;
-            outline: none;
-            box-shadow: 0 0 5px rgb(30, 257, 240);
-          }
-
-          .submitButton:hover {
-            background-color: aqua;
-            box-shadow: 0 0 5px aqua;
           }
         `}
       </style>

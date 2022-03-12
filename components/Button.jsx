@@ -9,6 +9,7 @@ const Button = ({
   secondaryBackground = COLORS.ORANGE_SECONDARY,
   boxShadow = COLORS.ORANGE_SHADOW,
   disabled = false,
+  Component = 'button',
   borderRadius,
   padding = 0,
   margin = 0,
@@ -18,7 +19,7 @@ const Button = ({
   ...props
 }) => {
   return (
-    <button {...props}>
+    <Component onClick={onClick} {...props}>
       {name}
       {children}
       <style jsx>
@@ -47,7 +48,7 @@ const Button = ({
           }
         `}
       </style>
-    </button>
+    </Component>
   );
 };
 
