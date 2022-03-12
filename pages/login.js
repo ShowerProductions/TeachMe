@@ -6,6 +6,7 @@ import InputForm from '@components/InputForm';
 import InputItem from '@components/InputItem';
 import Button from '@components/Button';
 import Seperator from '@components/Seperator';
+import CredentialProvider from '@components/CredentialProvider';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -21,6 +22,11 @@ export default function Login({ providers }) {
           <p className={utilStyles.paragraph} style={{ padding: 0, margin: 0 }}>
             Login using either your credentials or a familiar social app
           </p>
+          <div className="providers">
+            <CredentialProvider></CredentialProvider>
+            <CredentialProvider></CredentialProvider>
+            <CredentialProvider></CredentialProvider>
+          </div>
           <Seperator length="50%" width="30px" height="30px">
             Or
           </Seperator>
@@ -64,6 +70,15 @@ export default function Login({ providers }) {
             height: 100%;
             display: grid;
             grid: 1fr / 1.7fr 1fr;
+          }
+
+          .providers {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            gap: 20px;
           }
 
           main {
