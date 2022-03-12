@@ -5,6 +5,7 @@ import Layout from '@components/Layout';
 import InputForm from '@components/InputForm';
 import InputItem from '@components/InputItem';
 import Button from '@components/Button';
+import Seperator from '@components/Seperator';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -14,8 +15,15 @@ export default function Login({ providers }) {
       <Head></Head>
       <div className="login">
         <main className="login-area">
-          <h1 className={utilStyles.headding1}>Login to Your Acccount</h1>
-          {/* <form></form> */}
+          <h1 className={utilStyles.headding1} style={{ margin: 0 }}>
+            Login to Your Acccount
+          </h1>
+          <p className={utilStyles.paragraph} style={{ padding: 0, margin: 0 }}>
+            Login using either your credentials or a familiar social app
+          </p>
+          <Seperator length="50%" width="30px" height="30px">
+            Or
+          </Seperator>
           <InputForm>
             {(register) => (
               <>
@@ -64,6 +72,7 @@ export default function Login({ providers }) {
             justify-content: center;
             align-content: center;
             align-items: center;
+            gap: 25px;
             background-color: #fff;
           }
 
