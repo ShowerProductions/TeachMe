@@ -23,9 +23,12 @@ export default function Login({ providers }) {
             Login using either your credentials or a familiar social app
           </p>
           <div className="providers">
-            <CredentialProvider></CredentialProvider>
-            <CredentialProvider></CredentialProvider>
-            <CredentialProvider></CredentialProvider>
+            {Object.values(providers).map((provider) => (
+              <CredentialProvider
+                onClick={() => signIn(provider.id)}
+                key={provider.id}
+              ></CredentialProvider>
+            ))}
           </div>
           <Seperator length="50%" width="30px" height="30px">
             Or
@@ -57,11 +60,7 @@ export default function Login({ providers }) {
           </p>
           <Button padding="10px 30px">Sign Up</Button>
         </div>
-        {/* {Object.values(providers).map((provider) => (
-        <button onClick={() => signIn(provider.id)} key={provider.id}>
-          Sign in with {provider.name}
-        </button>
-      ))} */}
+        {/* { */}
       </div>
       <style jsx>
         {`
