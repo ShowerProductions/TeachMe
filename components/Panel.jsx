@@ -7,12 +7,7 @@ const Panel = ({ children }) => {
       {children}
       <style jsx>{`
         div {
-          display: flex;
-          flex-flow: column nowrap;
-          justify-content: flex-start;
-          align-items: center;
-          align-content: center;
-          background-color: white;
+          background-color: #fff;
           overflow-y: auto;
         }
       `}</style>

@@ -1,4 +1,5 @@
 import { SessionProvider } from 'next-auth/react';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import '../styles/globals.css';
 

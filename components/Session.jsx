@@ -21,6 +21,8 @@ const Session = ({ username, title, description, topic }) => {
             flex-flow: column nowrap;
             justify-content: flex-start;
             border: 3px solid black;
+            border-left: none;
+            border-right: none;
             border-top: 0;
             background-color: rgb(200, 200, 200);
             padding: 20px;
@@ -72,7 +74,7 @@ const Session = ({ username, title, description, topic }) => {
             border-radius: 10px;
             width: 60px;
             height: 35px;
-            transition: transform 0.5s, background-color 0.2s;
+            transition: transform 0.2s, background-color 0.2s;
             text-align: center;
             font-size: 1em;
           }

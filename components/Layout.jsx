@@ -22,7 +22,7 @@ const Layout = ({ children, navbar = false }) => {
 };
 
 Layout.propTypes = {
-  navbar: PropTypes.boo,
+  navbar: PropTypes.bool,
 };
 
 export default Layout;
