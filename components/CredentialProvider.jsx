@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 const CredentialProvider = ({
   children,
+  onClick = () => {},
   radius = '50px',
   background,
   hoveredBackground,
+  ...props
 }) => {
   return (
-    <div>
+    <button onClick={onClick} {...props}>
       {children}
       <style jsx>{`
-        div {
+        button {
           position: relative;
           width: ${radius};
           height: ${radius};
@@ -20,13 +22,14 @@ const CredentialProvider = ({
           cursor: pointer;
           overflow: hidden;
           transition: background-color 0.5s;
+          border: none;
         }
 
-        div:hover {
+        button:hover {
           background-color: ${hoveredBackground || 'rgb(174, 62, 230)'};
         }
 
-        div::before {
+        button::before {
           content: '';
           position: absolute;
           top: 0;
@@ -40,7 +43,7 @@ const CredentialProvider = ({
           transition: transform 0.5s;
         }
       `}</style>
-    </div>
+    </button>
   );
 };
 

@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Layout = ({ children }) => {
+import Navbar from '@components/Navbar';
+
+const Layout = ({ children, navbar = false }) => {
   return (
     <div className="Layout">
+      {navbar && <Navbar />}
       {children}
       <style jsx>
         {`
           .Layout {
             width: 100vw;
-            height: 100vh;
+            height: ${navbar ? 'calc(100vh - 80px)' : '100vh'};
             background: rgb(250, 250, 250);
           }
         `}
@@ -19,7 +22,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  id: PropTypes.string,
+  navbar: PropTypes.boo,
 };
 
 export default Layout;

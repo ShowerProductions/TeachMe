@@ -1,9 +1,0 @@
-.Panel {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-  background-color: white;
-  overflow-y: auto;
-}

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Session.module.css';
 import utilStyles from '@styles/utils.module.css';
 
 const Session = ({ username, title, description, topic }) => {

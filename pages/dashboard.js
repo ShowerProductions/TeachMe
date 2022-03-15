@@ -1,14 +1,13 @@
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 
-import Layout from '@components/layout/Layout';
-import DashboardLayout from '@components/dashboard/layout/Layout';
-import Panel from '@components/dashboard/panel/Panel';
-import Session from '@components/dashboard/panels/sessions/Session';
+import Layout from '@components/Layout';
+import Panel from '@components/Panel';
+import Session from '@components/Session';
 
 export default function Dashboard() {
   return (
-    <Layout>
+    <Layout navbar>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
@@ -17,7 +16,7 @@ export default function Dashboard() {
           rel="stylesheet"
         />
       </Head>
-      <DashboardLayout>
+      <main>
         <Panel>hjasdkf</Panel>
         <Panel>
           <Session
@@ -34,7 +33,18 @@ export default function Dashboard() {
           />
         </Panel>
         <Panel></Panel>
-      </DashboardLayout>
+      </main>
+      <style jsx>{`
+        main {
+          display: grid;
+          grid-template-rows: 1fr;
+          grid-template-columns: 0.9fr 1.2fr 0.9fr;
+          gap: 7px;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+        }
+      `}</style>
     </Layout>
   );
 }
