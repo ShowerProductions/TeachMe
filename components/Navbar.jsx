@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import Image from 'next/image';
@@ -7,6 +7,10 @@ import { undraggable } from '@lib/reactUtils';
 
 import Profile from '@components/Profile';
 import ToggleArrow from '@components/ToggleArrow';
+import Menu from '@components/Menu';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '@public/static/images/temp-logo.png';
 
@@ -36,41 +40,50 @@ const NavElement = ({ children, button = false, ...NavSettings }) => {
 };
 
 const ProfileButton = ({ chlidren }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <button>
-      <div>
-        <Profile />
-      </div>
-      <ToggleArrow />
+    <div>
+      <button onClick={() => setOpen(!open)}>
+        <div className="profile-image">
+          <Profile />
+        </div>
+        <ToggleArrow open={open} />
+      </button>
+      {open && <Menu />}
       <style jsx>{`
         button {
+          position: relative;
+          width: 100px;
+          height: 100%;
           display: flex;
           flex-flow: row nowrap;
           justify-content: center;
           align-items: center;
           align-content: center;
           box-sizing: content-box;
-          height: 70%;
-          aspect-ratio: 1;
-          padding: 0;
-          margin: 0;
           background: transparent;
           border: none;
           cursor: pointer;
+          padding: 0;
+          margin: 0;
+          gap: 5px;
         }
 
-        button:hover div {
+        button:hover .profile-image {
           box-shadow: 0 0 0 2px black;
         }
 
-        div {
-          height: 10px;
-          width: 10px;
+        .profile-image {
+          margin: 0;
+          padding: 0;
+          height: 40px;
+          aspect-ratio: 1;
           border-radius: 100%;
           overflow: hidden;
         }
       `}</style>
-    </button>
+    </div>
   );
 };
 
@@ -125,7 +138,6 @@ const Navbar = (props) => {
             align-items: center;
             align-content: center;
             gap: 30px;
-            overflow: hidden;
             padding: 0 40px;
           }
 

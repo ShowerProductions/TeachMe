@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretSquareDown } from '@fortawesome/free-regular-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const ToggleArrow = ({ children, open, ...props }) => {
+const ToggleArrow = ({ children, open = false, ...props }) => {
   return (
-    <div>
-      <FontAwesomeIcon icon={faCaretSquareDown} width={50} height={50} />
+    <div className={`${open ? 'active' : ''}`}>
+      <FontAwesomeIcon icon={faCaretDown} />
       <style jsx>{`
         div {
+          transition: transform 0.5s;
+        }
+        .active {
+          transform: rotate(-180deg);
         }
       `}</style>
     </div>

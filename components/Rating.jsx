@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarFilling } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +14,6 @@ const Star = ({ children, active = false, ...props }) => {
           style={{
             height: '100%',
             color: 'yellow',
-            'text-shadow': '2px 2px #20202088',
           }}
         />
       )}
@@ -26,7 +24,6 @@ const Star = ({ children, active = false, ...props }) => {
           top: 0,
           height: '100%',
           color: 'black',
-          'text-shadow': '2px 2px #20202088',
         }}
       />
       <style jsx>{`
