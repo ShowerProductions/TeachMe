@@ -60,7 +60,6 @@ export default function Login({ providers }) {
           </p>
           <Button padding="10px 30px">Sign Up</Button>
         </div>
-        {/* { */}
       </div>
       <style jsx>
         {`

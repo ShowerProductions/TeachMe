@@ -22,7 +22,7 @@ export default function Dashboard() {
       <main>
         <Panel>
           <div className={`panel__left ${utilStyles.fullspace}`}>
-            <Rating width="70%" height="40px" score={3} />
+            <Rating width="45%" height="40px" score={3} />
           </div>
         </Panel>
         <Panel>

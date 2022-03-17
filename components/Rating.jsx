@@ -3,24 +3,35 @@ import PropTypes from 'prop-types';
 
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faStarFilling } from '@fortawesome/free-solid-svg-icons';
 
 const Star = ({ children, active = false }) => {
   return (
     <div>
-      {/* <FontAwesomeIcon icon={solid('coffee')} /> */}
-      {/* <Image src="/static/images/star-outline.svg" width={1000} height={1000} /> */}
+      {active && (
+        <FontAwesomeIcon
+          icon={faStarFilling}
+          style={{
+            height: '100%',
+            color: 'yellow',
+            'text-shadow': '2px 2px #20202088',
+          }}
+        />
+      )}
       <FontAwesomeIcon
-        icon={faStar}
+        icon={faStarOutline}
         style={{
+          position: 'absolute',
+          top: 0,
           height: '100%',
           color: 'black',
           'text-shadow': '2px 2px #20202088',
         }}
       />
-      {/* <FontAwesomeIcon icon={solid('user-secret')} /> */}
       <style jsx>{`
         div {
+          position: relative;
           height: 100%;
           aspect-ratio: 1;
         }
