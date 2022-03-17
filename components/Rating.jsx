@@ -73,7 +73,7 @@ const Rating = ({ children, width, height, score = 0 }) => {
 Rating.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
-  rating: PropTypes.score,
+  score: PropTypes.number,
 };
 
 export default Rating;

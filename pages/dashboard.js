@@ -5,6 +5,7 @@ import Layout from '@components/Layout';
 import Panel from '@components/Panel';
 import Session from '@components/Session';
 import Rating from '@components/Rating';
+import Info from '@components/Info';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -23,6 +24,9 @@ export default function Dashboard() {
         <Panel>
           <div className={`panel__left ${utilStyles.fullspace}`}>
             <Rating width="45%" height="40px" score={3} />
+            <Info left="25%" bottom="50px">
+              lkasjdfs
+            </Info>
           </div>
         </Panel>
         <Panel>
