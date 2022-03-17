@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react';
 import { undraggable } from '@lib/reactUtils';
 
+import Profile from '@components/Profile';
+import ToggleArrow from '@components/ToggleArrow';
+
 import logo from '@public/static/images/temp-logo.png';
 
 const NavElement = ({ children, button = false, ...NavSettings }) => {
@@ -32,6 +35,45 @@ const NavElement = ({ children, button = false, ...NavSettings }) => {
   );
 };
 
+const ProfileButton = ({ chlidren }) => {
+  return (
+    <button>
+      <div>
+        <Profile />
+      </div>
+      <ToggleArrow />
+      <style jsx>{`
+        button {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+          box-sizing: content-box;
+          height: 70%;
+          aspect-ratio: 1;
+          padding: 0;
+          margin: 0;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        button:hover div {
+          box-shadow: 0 0 0 2px black;
+        }
+
+        div {
+          height: 10px;
+          width: 10px;
+          border-radius: 100%;
+          overflow: hidden;
+        }
+      `}</style>
+    </button>
+  );
+};
+
 const Navbar = (props) => {
   const { data: session, status } = useSession();
   const loggedin = status === 'authenticated';
@@ -54,14 +96,15 @@ const Navbar = (props) => {
       </div>
       {loggedin ? (
         <>
-          <NavElement
+          {/* <NavElement
             button
             onClick={() => {
               signOut({ callbackUrl: 'http://localhost:3000/login' });
             }}
           >
             Logout
-          </NavElement>
+          </NavElement> */}
+          <ProfileButton />
         </>
       ) : (
         <>
@@ -75,7 +118,7 @@ const Navbar = (props) => {
           nav {
             position: static;
             width: 100vw;
-            height: 80px;
+            height: 60px;
             background-color: rgb(200, 20, 20);
             display: flex;
             justify-content: flex-end;

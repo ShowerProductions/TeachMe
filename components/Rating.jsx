@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarFilling } from '@fortawesome/free-solid-svg-icons';
 
-const Star = ({ children, active = false }) => {
+const Star = ({ children, active = false, ...props }) => {
   return (
-    <div>
+    <div {...props}>
       {active && (
         <FontAwesomeIcon
           icon={faStarFilling}
@@ -49,8 +49,8 @@ const Rating = ({ children, width, height, score = 0 }) => {
   const stars = [];
   for (let starIndex = 1; starIndex <= 5; starIndex++) {
     // Activates the correct number of stars, ie score = 3, 3 stars checked
-    if (starIndex <= score) stars.push(<Star active={true} />);
-    else stars.push(<Star active={false} />);
+    if (starIndex <= score) stars.push(<Star active={true} key={starIndex} />);
+    else stars.push(<Star active={false} key={starIndex} />);
   }
   return (
     <div>
