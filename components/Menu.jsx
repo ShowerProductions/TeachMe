@@ -1,58 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MenuButton = ({ children }) => {
+import { signOut } from 'next-auth/react';
+
+import utilStyles from '@styles/utils.module.css';
+
+const MenuButton = ({ children, ...props }) => {
   return (
-    <button>
+    <button {...props}>
       {children}
       <style jsx>{`
         button {
           width: 100%;
           text-align: start;
           margin: 0;
-          padding: 5px 4px;
+          padding: 8px 0;
+          color: white;
+          font-size: 0.9em;
           border: none;
           background: none;
           cursor: pointer;
         }
 
         button:hover {
-          background: rgba(150, 150, 150, 0.9);
+          background: rgb(200, 200, 200);
         }
       `}</style>
     </button>
   );
 };
 
-const Menu = ({ children, background }) => {
+const Menu = ({
+  children,
+  top,
+  bottom,
+  right,
+  left,
+  textColor,
+  background,
+}) => {
   return (
-    <div>
+    <div className={`${utilStyles.unselectable}`}>
+      <p>
+        Signed in as <br /> [User]
+      </p>
       <MenuButton>Settings</MenuButton>
-      <MenuButton>Sign Out</MenuButton>
+      <MenuButton onClick={() => signOut('/login')}>Sign Out</MenuButton>
       <style jsx>{`
         div {
-          --div-background: rgba(50, 50, 50, 0.9);
+          --div-background: ${background || 'rgba(70, 70, 70)'};
           display: flex;
           flex-flow: column nowrap;
           justify-content: flex-start;
           align-items: flex-start;
           position: absolute;
-          top: 55px;
-          width: 100px;
-          padding: 10px 0px;
+          top: ${top || 'none'};
+          bottom: ${bottom || 'none'};
+          left: ${left || 'none'};
+          right: ${right || 'none'};
+          width: 180px;
+          padding: 50px 0px;
           border-radius: 10px;
+          padding: 5px 15px;
           background: var(--div-background);
           border: white;
-        }
-
-        div * {
-          color: rgb(200, 200, 200);
-          width: 100%;
-          height: 20px;
-        }
-
-        div *:hover {
-          background: rgba(200, 200, 200, 0.9);
         }
 
         div::after {
@@ -65,11 +76,22 @@ const Menu = ({ children, background }) => {
           border-right: var(--triangle-size) solid transparent;
           border-bottom: var(--triangle-size) solid var(--div-background);
         }
+
+        p {
+          color: white;
+          padding: 0;
+          margin: 10px 0;
+        }
       `}</style>
     </div>
   );
 };
 
-Menu.propTypes = {};
+Menu.propTypes = {
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  right: PropTypes.string,
+  left: PropTypes.string,
+};
 
 export default Menu;

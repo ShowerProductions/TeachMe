@@ -50,7 +50,7 @@ const ProfileButton = ({ chlidren }) => {
         </div>
         <ToggleArrow open={open} />
       </button>
-      {open && <Menu />}
+      {open && <Menu top="55px" right="40px" />}
       <style jsx>{`
         button {
           position: relative;
@@ -109,14 +109,6 @@ const Navbar = (props) => {
       </div>
       {loggedin ? (
         <>
-          {/* <NavElement
-            button
-            onClick={() => {
-              signOut({ callbackUrl: 'http://localhost:3000/login' });
-            }}
-          >
-            Logout
-          </NavElement> */}
           <ProfileButton />
         </>
       ) : (
