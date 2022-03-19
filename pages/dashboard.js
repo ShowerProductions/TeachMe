@@ -4,6 +4,7 @@ import { getSession } from 'next-auth/react';
 import Layout from '@components/Layout';
 import Panel from '@components/Panel';
 import Session from '@components/Session';
+import Meter from '@components/Meter';
 import Rating from '@components/Rating';
 import Info from '@components/Info';
 
@@ -23,6 +24,7 @@ export default function Dashboard() {
       <main>
         <Panel>
           <div className={`panel__left ${utilStyles.fullspace}`}>
+            <Meter diameter="200px" currentValue={3} />
             <Rating width="45%" height="40px" score={3} />
             <Info left="25%" bottom="50px">
               lkasjdfs
@@ -63,9 +65,10 @@ export default function Dashboard() {
         .panel__left {
           display: flex;
           flex-flow: column nowrap;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           align-content: center;
+          padding: 100px 0px;
         }
 
         .panel__center {
