@@ -7,6 +7,7 @@ import Session from '@components/Session';
 import Meter from '@components/Meter';
 import Rating from '@components/Rating';
 import Info from '@components/Info';
+import Comment from '@components/Comment';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -29,6 +30,15 @@ export default function Dashboard() {
             <Info left="25%" bottom="50px">
               lkasjdfs
             </Info>
+            <h2>Comments</h2>
+            <div className="comments">
+              <Comment username="bob">Yo bro, put em up</Comment>
+              <Comment username="jack">Best tutor ever!</Comment>
+              <Comment username="mosach">
+                DUIDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                that was epic man 👌
+              </Comment>
+            </div>
           </div>
         </Panel>
         <Panel>
@@ -69,6 +79,17 @@ export default function Dashboard() {
           align-items: center;
           align-content: center;
           padding: 100px 0px;
+        }
+
+        .comments {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: stretch;
+          align-items: stretch;
+          align-content: stretch;
+          width: 100%;
+          padding: 0 10%;
+          gap: 40px;
         }
 
         .panel__center {
