@@ -9,6 +9,7 @@ import Seperator from '@components/Seperator';
 import CredentialProvider from '@components/CredentialProvider';
 
 import utilStyles from '@styles/utils.module.css';
+import { COLORS } from '@lib/constants';
 
 export default function Login({ providers }) {
   return (
@@ -90,8 +91,12 @@ export default function Login({ providers }) {
           }
 
           .sign-up-area {
-            background-color: #8bc6ec;
-            background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+            background-color: ${COLORS.BLUE_PRIMARY};
+            background-image: linear-gradient(
+              135deg,
+              ${COLORS.BLUE_PRIMARY} 0%,
+              ${COLORS.BLUE_SECONDARY} 100%
+            );
             display: flex;
             flex-flow: column nowrap;
             justify-content: center;

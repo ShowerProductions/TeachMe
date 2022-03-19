@@ -9,9 +9,7 @@ import Profile from '@components/Profile';
 import ToggleArrow from '@components/ToggleArrow';
 import Menu from '@components/Menu';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-
+import { COLORS } from '@lib/constants';
 import logo from '@public/static/images/temp-logo.png';
 
 const NavElement = ({ children, button = false, ...NavSettings }) => {
@@ -124,7 +122,7 @@ const Navbar = (props) => {
             position: static;
             width: 100vw;
             height: 60px;
-            background-color: rgb(200, 20, 20);
+            background-color: ${COLORS.BLUE_SECONDARY};
             display: flex;
             justify-content: flex-end;
             align-items: center;
