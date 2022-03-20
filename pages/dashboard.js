@@ -58,7 +58,10 @@ export default function Dashboard() {
           </div>
         </Panel>
         <Panel>
-          <div className={`panel__right ${utilStyles.fullspace}`}></div>
+          <div className={`panel__right ${utilStyles.fullspace}`}>
+            <h1>Friends</h1>
+            <p>You have no friends :(</p>
+          </div>
         </Panel>
       </main>
       <style jsx>{`
