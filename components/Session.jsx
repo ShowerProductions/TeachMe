@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { useRouter } from 'next/router';
+
 import utilStyles from '@styles/utils.module.css';
 
-const Session = ({ username, title, description, topic }) => {
+const Session = ({ id, username, title, description, topic }) => {
+  const router = useRouter();
+  console.log(id);
+
   return (
     <div className="session">
       <h1 className="title">{title}</h1>
@@ -12,7 +17,12 @@ const Session = ({ username, title, description, topic }) => {
         <h3 className="topic">{topic}</h3>
       </div>
       <p className="description">{description}</p>
-      <button className="join-button">Join</button>
+      <button
+        onClick={() => router.push(`/dashboard/session/${id}`)}
+        className="join-button"
+      >
+        Join
+      </button>
       <style jsx>
         {`
           .session {
@@ -20,11 +30,8 @@ const Session = ({ username, title, description, topic }) => {
             display: flex;
             flex-flow: column nowrap;
             justify-content: flex-start;
-            border: 3px solid black;
-            border-left: none;
-            border-right: none;
-            border-top: 0;
-            background-color: rgb(200, 200, 200);
+            background-color: white;
+            box-shadow: 0 0 20px black;
             padding: 20px;
             width: 100%;
             height: 200px;
@@ -93,6 +100,7 @@ const Session = ({ username, title, description, topic }) => {
 };
 
 Session.propTypes = {
+  id: PropTypes.number,
   username: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
