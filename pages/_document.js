@@ -9,14 +9,15 @@ export default function Doc() {
         <Main />
         <NextScript />
       </body>
-      {/* <style jsx>
+      <style jsx>
         {`
+          html,
           body {
-            padding: 0;
+            height: 100%;
             margin: 0;
           }
         `}
-      </style> */}
+      </style>
     </Html>
   );
 }
