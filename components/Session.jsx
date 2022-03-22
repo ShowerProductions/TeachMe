@@ -7,7 +7,6 @@ import utilStyles from '@styles/utils.module.css';
 
 const Session = ({ id, username, title, description, topic }) => {
   const router = useRouter();
-  console.log(id);
 
   return (
     <div className="session">
