@@ -5,15 +5,16 @@ import Navbar from '@components/Navbar';
 
 const Layout = ({ children, navbar = false }) => {
   return (
-    <div className="Layout">
+    <div>
       {navbar && <Navbar />}
       {children}
       <style jsx>
         {`
-          .Layout {
+          div {
             width: 100vw;
-            height: ${navbar ? 'calc(100vh - 80px)' : '100vh'};
+            height: 100vh;
             background: rgb(250, 250, 250);
+            overflow: hidden;
           }
         `}
       </style>
