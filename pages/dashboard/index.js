@@ -44,12 +44,14 @@ export default function Dashboard() {
         <Panel>
           <div className={`panel__center ${utilStyles.fullspace}`}>
             <Session
+              id={1231}
               username="torghton"
               title="How to find area of circle"
               description="Im not sure how to find the area of a circle, my geometry class is studying it right now, though the teacher didn't explain it very well. Please lecture me on how to do this."
               topic="Science"
             />
             <Session
+              id={2}
               username="bob"
               title="Mitocondria Explanation Help"
               description="hafkjdshfkjhsadkjfhsakjdfhksjadfhkjsadhfhsakjfhsd"
@@ -112,7 +114,6 @@ export default function Dashboard() {
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
-  console.log(session);
 
   if (session === null) {
     return {
