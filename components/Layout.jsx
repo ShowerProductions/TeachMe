@@ -13,8 +13,10 @@ const Layout = ({ children, navbar = false }) => {
           div {
             width: 100vw;
             height: 100vh;
+            padding-left: ${navbar ? '60px' : 'none'};
             background: rgb(250, 250, 250);
             overflow: hidden;
+            background-image: url('/static/images/Background.jpg');
           }
         `}
       </style>
