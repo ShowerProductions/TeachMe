@@ -6,7 +6,6 @@ import { useSession, signOut } from 'next-auth/react';
 import { undraggable } from '@lib/reactUtils';
 
 import Profile from '@components/Profile';
-import ToggleArrow from '@components/ToggleArrow';
 import Menu from '@components/Menu';
 
 import { COLORS } from '@lib/constants';
@@ -46,13 +45,9 @@ const ProfileButton = ({ chlidren }) => {
         <div className="profile-image">
           <Profile />
         </div>
-        <ToggleArrow open={open} />
       </button>
-      {open && <Menu top="55px" right="40px" />}
       <style jsx>{`
         button {
-          position: relative;
-          width: 100px;
           height: 100%;
           display: flex;
           flex-flow: row nowrap;
@@ -91,20 +86,6 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <div className="logoLink">
-        <NextLink href="/">
-          <a>
-            <Image
-              alt="logo"
-              src={logo}
-              layout="intrinsic"
-              width={1200}
-              height={630}
-              onDragStart={undraggable}
-            />
-          </a>
-        </NextLink>
-      </div>
       {loggedin ? (
         <>
           <ProfileButton />
@@ -119,16 +100,22 @@ const Navbar = (props) => {
       <style jsx>
         {`
           nav {
-            position: static;
-            width: 100vw;
-            height: 60px;
+            position: fixed;
+            width: 60px;
+            height: 100vh;
             background-color: ${COLORS.BLUE_SECONDARY};
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
             align-content: center;
             gap: 30px;
-            padding: 0 40px;
+            padding: 40px 10px;
+            transition: width 0.2s;
+          }
+
+          nav:hover {
+            width: 120px;
           }
 
           .logoLink {
