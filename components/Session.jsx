@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { useRouter } from 'next/router';
+
+import Button from '@components/Button';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -16,12 +17,17 @@ const Session = ({ id, username, title, description, topic }) => {
         <h3 className="topic">{topic}</h3>
       </div>
       <p className="description">{description}</p>
-      <button
+      <Button
         onClick={() => router.push(`/dashboard/session/${id}`)}
-        className="join-button"
+        style={{
+          position: 'absolute',
+          right: '20px',
+          bottom: '20px',
+        }}
+        padding="5px 15px"
       >
         Join
-      </button>
+      </Button>
       <style jsx>
         {`
           .session {

@@ -104,7 +104,11 @@ const Navbar = (props) => {
             left: 0;
             width: 60px;
             height: 100vh;
-            background-color: ${COLORS.BLUE_SECONDARY};
+            background: linear-gradient(
+              to bottom,
+              ${COLORS.BLUE_PRIMARY},
+              ${COLORS.BLUE_SECONDARY}
+            );
             display: flex;
             flex-flow: column nowrap;
             justify-content: flex-start;

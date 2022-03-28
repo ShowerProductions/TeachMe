@@ -14,8 +14,10 @@ const Layout = ({ children, navbar = false }) => {
             width: ${navbar ? 'calc(100vw - 60px)' : '100vw'};
             margin-left: ${navbar ? '60px' : '0'};
             height: 100vh;
+            padding-left: ${navbar ? '60px' : 'none'};
             background: rgb(250, 250, 250);
             overflow: hidden;
+            background-image: url('/static/images/Background.jpg');
           }
         `}
       </style>
