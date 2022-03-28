@@ -11,7 +11,8 @@ const Layout = ({ children, navbar = false }) => {
       <style jsx>
         {`
           div {
-            width: 100vw;
+            width: ${navbar ? 'calc(100vw - 60px)' : '100vw'};
+            margin-left: ${navbar ? '60px' : '0'};
             height: 100vh;
             background: rgb(250, 250, 250);
             overflow: hidden;

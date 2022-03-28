@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputItem = ({ register, name, type, error, required = false }) => {
+const InputItem = ({
+  register = (...args) => {},
+  name,
+  type,
+  error,
+  required = false,
+}) => {
   return (
     <div className="InputItem">
       <input
@@ -33,7 +39,6 @@ const InputItem = ({ register, name, type, error, required = false }) => {
               rgb(0, 100, 200, 0.1),
               rgb(0, 100, 200, 0.12)
             );
-            /* background-color: rgb(0, 100, 200, 0.1); */
             border-radius: 25px;
             font-size: 1.2em;
             outline: none;

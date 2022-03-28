@@ -101,6 +101,7 @@ const Navbar = (props) => {
         {`
           nav {
             position: fixed;
+            left: 0;
             width: 60px;
             height: 100vh;
             background-color: ${COLORS.BLUE_SECONDARY};
@@ -112,6 +113,7 @@ const Navbar = (props) => {
             gap: 30px;
             padding: 40px 10px;
             transition: width 0.2s;
+            z-index: 10;
           }
 
           nav:hover {
