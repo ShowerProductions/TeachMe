@@ -25,14 +25,30 @@ const Chat = ({ children, ...props }) => {
   return (
     <div>
       <ol>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>asdjfhsd</ChatMessage>
-        <ChatMessage>hjasdfjkh</ChatMessage>
+        <ChatMessage username="bob" color="green">
+          sup
+        </ChatMessage>
+        <ChatMessage username="osama benladen" color="purple">
+          sup
+        </ChatMessage>
+        <ChatMessage username="osama benladen" color="purple">
+          u up?
+        </ChatMessage>
+        <ChatMessage username="bob" color="green">
+          what?
+        </ChatMessage>
+        <ChatMessage username="osama benladen" color="purple">
+          did I stutter?
+        </ChatMessage>
+        <ChatMessage username="osama benladen" color="purple">
+          u up?
+        </ChatMessage>
+        <ChatMessage username="bob" color="green">
+          yeah
+        </ChatMessage>
+        <ChatMessage username="bob" color="green">
+          and im down
+        </ChatMessage>
       </ol>
       <style jsx>{`
         div {

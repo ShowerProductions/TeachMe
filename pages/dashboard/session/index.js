@@ -3,11 +3,25 @@ import { getSession } from 'next-auth/react';
 
 import Session from '@components/Session';
 import Layout from '@components/Layout';
+import InputForm from '@components/InputForm';
+import InputItem from '@components/InputItem';
 
 const index = (props) => {
   return (
     <Layout navbar>
       <main>
+        <InputForm name="search" style={{ 'flex-flow': 'row nowrap' }}>
+          {(register) => (
+            <>
+              <InputItem
+                name="Search"
+                register={register}
+                type="text"
+                required
+              />
+            </>
+          )}
+        </InputForm>
         <Session
           id={4}
           username="torghton"

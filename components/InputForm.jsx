@@ -4,19 +4,19 @@ import { useForm } from 'react-hook-form';
 
 import Button from '@components/Button';
 
-const InputForm = ({ children }) => {
+const InputForm = ({ children, name, ...props }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} {...props}>
       {children(register)}
       <Button
         onClick={(e) => e.target.closest('form').submit()}
         padding="10px 15px"
         className="submitButton"
         type="submit"
-        name="Login"
+        name={name || 'Login'}
       />
       <style jsx>
         {`
@@ -28,7 +28,7 @@ const InputForm = ({ children }) => {
             flex-flow: column nowrap;
             justify-content: center;
             align-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 20px;
             border-radius: 10px;
             background-color: transparent;

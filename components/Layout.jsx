@@ -12,9 +12,9 @@ const Layout = ({ children, navbar = false }) => {
         {`
           div {
             width: ${navbar ? 'calc(100vw - 60px)' : '100vw'};
-            margin-left: ${navbar ? '60px' : '0'};
+            margin-left: ${navbar ? '30px' : '0'};
             height: 100vh;
-            padding-left: ${navbar ? '60px' : 'none'};
+            padding-left: ${navbar ? '30px' : 'none'};
             background: rgb(250, 250, 250);
             overflow: hidden;
             background-image: url('/static/images/Background.jpg');
