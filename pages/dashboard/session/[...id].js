@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -9,9 +9,69 @@ import Chat from '@components/Chat';
 
 import { COLORS } from '@lib/constants';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophoneSlash } from '@fortawesome/free-solid-svg-icons';
+
+const OptionButton = ({
+  children,
+  onClick = () => {},
+  initallyToggled,
+  enabledImage,
+  disabledImage,
+  width,
+  height,
+  ...props
+}) => {
+  const [toggled, setToggled] = useState(initallyToggled);
+  return (
+    <button
+      onClick={() => {
+        setToggled(!toggled);
+        onClick();
+      }}
+    >
+      <FontAwesomeIcon icon={toggled ? enabledImage : disabledImage} />
+      <style jsx>
+        {`
+          button {
+            width: ${width || '30px'};
+            height: ${height || '30px'};
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+          }
+
+          button:hover {
+            background: rgba(150, 150, 150, 0.2);
+          }
+        `}
+      </style>
+    </button>
+  );
+};
+
 const Session = (props) => {
   const router = useRouter();
   const id = router.query.id || [];
+
+  const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
+  const [videoEnabled, setVideoEnabled] = useState(false);
+
+  useEffect(() => {
+    const constraints = {
+      video: true,
+      audio: true,
+    };
+
+    navigator.mediaDevices
+      .getUserMedia(constraints)
+      .then((stream) => console.log(`Got Media Stream: ${stream}`))
+      .catch((error) => console.log(`Error accessing media devices: ${error}`));
+
+    return function cleanup() {};
+  }, []);
+
   return (
     <Layout navbar>
       <main>
@@ -19,20 +79,19 @@ const Session = (props) => {
           <Chat />
           <div className="video-camera">
             <VideoCamera />
+            <div className="options">
+              <OptionButton
+                enabledImage={faMicrophone}
+                disabledImage={faMicrophoneSlash}
+              />
+              <OptionButton />
+              <OptionButton />
+            </div>
           </div>
         </div>
         <div className="bottom-row">
           <InputItem name="Write a Message" type="text" />
         </div>
-        {/* <div className="chat-area">
-          <Chat />
-          <div className="input-area">
-            <InputItem name="Text" type="text" />
-          </div>
-        </div>
-        <div className="video-camera">
-          <VideoCamera />
-        </div> */}
       </main>
       <style jsx>{`
         main {
@@ -46,57 +105,28 @@ const Session = (props) => {
           background: white;
         }
 
-        /*
-        .chat-area {
-          display: grid;
-          grid: 6fr 1fr / 1fr;
-          gap: 5px;
-        }
-
-        main *,
-        .chat-area * {
-          height: 100%;
-          width: 100%;
-        }
-
-        .chat-area * {
-          background-color: white;
-        }
-
-        .input-area {
-          display: flex;
-          flex-flow: column nowrap;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-          padding: 0 20px;
-        }
-
-        main .video-camera {
-          background-color: white;
-        }
-
-        
-        */
         .top-row {
           display: grid;
           grid: 1fr / 5fr 3fr;
         }
 
         .video-camera {
-          /*display: flex;
+          display: flex;
           flex-flow: column nowrap;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: center;
           align-content: center;
-          height: 100%;
+          gap: 5px;
+          padding: 50px 0;
+        }
+
+        .options {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          align-content: center;
           width: 100%;
-          padding: 10px;*/
-          position: absolute;
-          right: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 40%;
         }
 
         .bottom-row {

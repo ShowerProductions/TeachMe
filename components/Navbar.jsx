@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import { useSession, signOut } from 'next-auth/react';
-import { undraggable } from '@lib/reactUtils';
 
 import Profile from '@components/Profile';
-import Menu from '@components/Menu';
 
 import { COLORS } from '@lib/constants';
-import logo from '@public/static/images/temp-logo.png';
 
 const NavElement = ({ children, button = false, ...NavSettings }) => {
   return (

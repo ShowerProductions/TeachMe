@@ -15,6 +15,7 @@ const Button = ({
   margin = 0,
   color,
   fontSize,
+  animate = true,
   name,
   ...props
 }) => {
@@ -42,10 +43,17 @@ const Button = ({
             cursor: pointer;
           }
 
-          button:hover {
-            transform: scale(1.2);
-            border-radius: 10px;
+          ${
+            animate
+              ? `
+                button:hover {
+                  transform: scale(1.2);
+                  border-radius: 10px;
+                }
+              `
+              : ``
           }
+        }
         `}
       </style>
     </Component>
