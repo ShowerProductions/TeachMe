@@ -12,6 +12,8 @@ import { COLORS } from '@lib/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import { faMicrophoneSlash } from '@fortawesome/free-solid-svg-icons';
+import { faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faVideoSlash } from '@fortawesome/free-solid-svg-icons';
 
 const OptionButton = ({
   children,
@@ -84,8 +86,10 @@ const Session = (props) => {
                 enabledImage={faMicrophone}
                 disabledImage={faMicrophoneSlash}
               />
-              <OptionButton />
-              <OptionButton />
+              <OptionButton
+                enabledImage={faVideo}
+                disabledImage={faVideoSlash}
+              />
             </div>
           </div>
         </div>
