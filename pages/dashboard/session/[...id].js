@@ -18,22 +18,34 @@ import { faVideoSlash } from '@fortawesome/free-solid-svg-icons';
 const OptionButton = ({
   children,
   onClick = () => {},
-  initallyToggled,
+  initallyToggled = false,
   enabledImage,
   disabledImage,
+  unavailable = false,
   width,
   height,
   ...props
 }) => {
   const [toggled, setToggled] = useState(initallyToggled);
+
+  useEffect(() => {
+    if (unavailable === true) setToggled(false);
+  }, [unavailable]);
+
   return (
     <button
       onClick={() => {
-        setToggled(!toggled);
-        onClick();
+        if (unavailable === false) {
+          setToggled(!toggled);
+          onClick();
+        }
       }}
+      {...props}
     >
-      <FontAwesomeIcon icon={toggled ? enabledImage : disabledImage} />
+      <FontAwesomeIcon
+        icon={toggled ? enabledImage : disabledImage}
+        style={unavailable ? { color: 'grey' } : {}}
+      />
       <style jsx>
         {`
           button {
@@ -45,7 +57,7 @@ const OptionButton = ({
           }
 
           button:hover {
-            background: rgba(150, 150, 150, 0.2);
+            ${!unavailable ? 'background: rgba(150, 150, 150, 0.2)' : ''};
           }
         `}
       </style>
@@ -87,6 +99,7 @@ const Session = (props) => {
                 disabledImage={faMicrophoneSlash}
               />
               <OptionButton
+                unavailable
                 enabledImage={faVideo}
                 disabledImage={faVideoSlash}
               />
