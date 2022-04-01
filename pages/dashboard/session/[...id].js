@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
+import io from 'socket.io-client';
+
 import Layout from '@components/Layout';
 import VideoCamera from '@components/VideoCamera';
 import InputItem from '@components/InputItem';
 import Chat from '@components/Chat';
-
-import { COLORS } from '@lib/constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
@@ -71,6 +71,17 @@ const Session = (props) => {
 
   const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
+
+  useEffect(() => socketInitializer(), []);
+
+  const socketInitializer = async () => {
+    await fetch('/api/socket');
+    const socket = io();
+
+    socket.on('connect', () => {
+      console.log('connected');
+    });
+  };
 
   useEffect(() => {
     const constraints = {
