@@ -69,7 +69,8 @@ const Session = (props) => {
   const router = useRouter();
   const id = router.query.id || [];
 
-  const io = useContext(SocketContext);
+  const { loading, socket } = useContext(SocketContext);
+  console.log(socket);
 
   const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);

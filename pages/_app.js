@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { SessionProvider } from 'next-auth/react';
@@ -9,25 +9,25 @@ import { io } from 'socket.io-client';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const [loading, setLoading] = useState(true);
+  const [socket, setSocket] = useState({});
   useEffect(() => socketInitializer(), []);
 
-  const IoContext = React.createContext();
-  IoContext.displayName = 'socket.io socket';
-
-  let ioSocket;
   const socketInitializer = async () => {
     await fetch('/api/socket');
-    const socket = io();
+    const ioSocket = io();
+    console.log('ASKDLJASKLJDDKLSA', ioSocket);
 
-    socket.on('connect', () => {
+    ioSocket.on('connect', () => {
       console.log('connected');
     });
 
-    ioSocket = socket;
+    setSocket(ioSocket);
+    setLoading(false);
   };
   return (
     <SessionProvider session={session}>
-      <SocketProvider value={ioSocket}>
+      <SocketProvider value={{ loading, socket }}>
         <Component {...pageProps} />
       </SocketProvider>
     </SessionProvider>
