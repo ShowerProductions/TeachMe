@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { useRouter } from 'next/router';
 
-import io from 'socket.io-client';
+import SocketContext from '@lib/context/socket';
 
 import Layout from '@components/Layout';
 import VideoCamera from '@components/VideoCamera';
@@ -69,19 +69,10 @@ const Session = (props) => {
   const router = useRouter();
   const id = router.query.id || [];
 
+  const io = useContext(SocketContext);
+
   const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
-
-  useEffect(() => socketInitializer(), []);
-
-  const socketInitializer = async () => {
-    await fetch('/api/socket');
-    const socket = io();
-
-    socket.on('connect', () => {
-      console.log('connected');
-    });
-  };
 
   useEffect(() => {
     const constraints = {
