@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "teachme-db.ctnjkjq7ym24.us-west-1.rds.amazonaws.com",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "TeachMe",
+            "username": "admin",
+            "database": "teachme"
+        }
+    ]
+}

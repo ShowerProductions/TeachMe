@@ -7,6 +7,7 @@ const InputItem = ({
   type,
   error,
   required = false,
+  ...props
 }) => {
   return (
     <div className="InputItem">
@@ -16,6 +17,7 @@ const InputItem = ({
         name={name.toLowerCase()}
         {...register(name, { required: required })}
         placeholder={`${name}...`}
+        {...props}
       />
       <p className="errorStatus">{error}</p>
       <style jsx>

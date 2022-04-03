@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 import Button from '@components/Button';
-import InputForm from '@components/InputForm';
-import InputItem from '@components/InputItem';
 
 import utilStyles from '@styles/utils.module.css';
 
@@ -107,7 +105,7 @@ const Session = ({ id, username, title, description, topic }) => {
 };
 
 Session.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   username: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,

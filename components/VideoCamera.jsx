@@ -16,7 +16,7 @@ const VideoCamera = ({
   }, [videoStream]);
 
   return (
-    <video ref={videoElement} muted={muted} autoPlay playsinline>
+    <video ref={videoElement} muted={muted} autoPlay playsInline>
       <style jsx>{`
         video {
           background: black;

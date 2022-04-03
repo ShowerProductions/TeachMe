@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import Layout from '@components/Layout';
 import VideoCamera from '@components/VideoCamera';
+import InputForm from '@components/InputForm';
 import InputItem from '@components/InputItem';
 import Chat from '@components/Chat';
 
@@ -65,12 +66,16 @@ const OptionButton = ({
 
 const Session = (props) => {
   const router = useRouter();
-  const id = router.query.id || [];
 
+  const [id, setId] = useState(undefined);
   const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
 
   const [videoStream, setVideoStream] = useState(undefined);
+  useEffect(() => {
+    if (Object.keys(router.query).length === 0) return;
+    setId(router.query.id[0]);
+  }, [router.query]);
 
   useEffect(() => {
     const constraints = {
@@ -88,11 +93,29 @@ const Session = (props) => {
     return () => {};
   }, []);
 
+  const sendChatMessage = async (e) => {
+    if (e.keyCode === 13) {
+      const message = e.target.value;
+      e.target.value = '';
+      await fetch('/api/pusher/chat', {
+        method: 'POST',
+        body: JSON.stringify({
+          chatId: id,
+          username: 'torghton',
+          message: message,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+  };
+
   return (
     <Layout navbar>
       <main>
         <div className="top-row">
-          <Chat />
+          <Chat chatId={id} />
           <div className="video-camera">
             <VideoCamera videoStream={videoStream} muted />
             <div className="options">
@@ -109,7 +132,12 @@ const Session = (props) => {
           </div>
         </div>
         <div className="bottom-row">
-          <InputItem name="Write a Message" type="text" />
+          <InputItem
+            name="Write a Message"
+            type="text"
+            onKeyDown={sendChatMessage}
+          />
+          ;
         </div>
       </main>
       <style jsx>{`
