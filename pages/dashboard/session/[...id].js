@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import { useRouter } from 'next/router';
 
-import SocketContext from '@lib/context/socket';
-
 import Layout from '@components/Layout';
 import VideoCamera from '@components/VideoCamera';
 import InputItem from '@components/InputItem';
@@ -69,11 +67,10 @@ const Session = (props) => {
   const router = useRouter();
   const id = router.query.id || [];
 
-  const { loading, socket } = useContext(SocketContext);
-  console.log(socket);
-
   const [microphoneEnabled, setMicrohponeEnabled] = useState(false);
   const [videoEnabled, setVideoEnabled] = useState(false);
+
+  const [videoStream, setVideoStream] = useState(undefined);
 
   useEffect(() => {
     const constraints = {
@@ -83,10 +80,12 @@ const Session = (props) => {
 
     navigator.mediaDevices
       .getUserMedia(constraints)
-      .then((stream) => console.log(`Got Media Stream: ${stream}`))
+      .then((stream) => {
+        setVideoStream(stream);
+      })
       .catch((error) => console.log(`Error accessing media devices: ${error}`));
 
-    return function cleanup() {};
+    return () => {};
   }, []);
 
   return (
@@ -95,7 +94,7 @@ const Session = (props) => {
         <div className="top-row">
           <Chat />
           <div className="video-camera">
-            <VideoCamera />
+            <VideoCamera videoStream={videoStream} muted />
             <div className="options">
               <OptionButton
                 enabledImage={faMicrophone}

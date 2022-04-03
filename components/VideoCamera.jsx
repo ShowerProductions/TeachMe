@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const VideoCamera = ({ children, width, ...props }) => {
+const VideoCamera = ({
+  children,
+  videoStream,
+  muted = false,
+  width,
+  ...props
+}) => {
+  const videoElement = useRef(null);
+
+  useEffect(() => {
+    const video = videoElement.current;
+    video.srcObject = videoStream;
+  }, [videoStream]);
+
   return (
-    <div>
+    <video ref={videoElement} muted={muted} autoPlay playsinline>
       <style jsx>{`
-        div {
+        video {
           background: black;
           width: ${width || '100%'};
           aspect-ratio: calc(4 / 3);
+          pointer-events: none;
         }
       `}</style>
-    </div>
+    </video>
   );
 };
 
-VideoCamera.propTypes = {};
+VideoCamera.propTypes = {
+  videoStream: PropTypes.object,
+  muted: PropTypes.bool,
+  width: PropTypes.string,
+};
 
 export default VideoCamera;
